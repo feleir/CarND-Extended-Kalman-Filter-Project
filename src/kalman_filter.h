@@ -64,6 +64,15 @@ public:
    */
   void UpdateEKF(const Eigen::VectorXd &z);
 
+private:
+  /**
+   * Updates the state by using Kalman filter equations
+   * this is a helper function so Update and UpdateEKF can reuse the same logic 
+   * for calculations after obtaining y
+   * @param y  y at k+1
+   */
+  void UpdateFromY(const Eigen::VectorXd &y);
+
 };
 
 #endif /* KALMAN_FILTER_H_ */
